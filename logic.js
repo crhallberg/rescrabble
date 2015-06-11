@@ -541,7 +541,7 @@ function loadWords() {
   var request = (window.XMLHttpRequest)
     ? new XMLHttpRequest()
     : new ActiveXObject("Microsoft.XMLHTTP");
-  request.open("GET","dictionary.txt",false);
+  request.open("GET","./dictionary.txt",false);
   request.send();
   return request.responseText.split("\n");
 }
