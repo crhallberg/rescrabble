@@ -1,77 +1,71 @@
-﻿
-table {
-  margin:1em auto;
-}
-td {
-  background:#FEC;
-  width:41px;
-  height:41px;
-  text-align:center;
-  vertical-align:middle;
-  box-shadow:inset 0 0 1px #000;
-  border-radius:2px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+﻿table {margin: 1em auto;}
 
+td {
+  width: 41px;
+  height: 41px;
+  text-align: center;
+  vertical-align: middle;
+  background: #fec;
+  border-radius: 2px;
+  box-shadow: inset 0 0 1px #000;
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
 }
-.dW,.S {
-  background:#E8BBBB;
-}
-.tW {
-  background:#F77;
-}
-.dL {
-  background:#BCF;
-}
-.tL {
-  background:#79F;
-}
-.S {
-  /*background-image:url("http://gillianjacobsfan.com/wp-content/themes/darkgillian/social/star.png");*/
-  background-position:center center;
-  background-repeat:no-repeat;
-}
+
+.dw,
+.s {background: #e8bbbb;}
+
+.tw {background: #f77;}
+
+.dl {background: #bcf;}
+
+.tl {background: #79f;}
 
 #rack {
-  border-spacing:8px 0;
-  box-shadow:0 0 1px #000,inset 0 0 4px #FFF;
-  /*background-image:url("http://img203.imageshack.us/img203/7739/redheadhaircut1.jpg");*/
-  padding:15px 20px 25px 20px;
+  padding: 15px 20px 25px 20px;
+  border-spacing: 8px 0;
+  box-shadow: 0 0 1px #000,inset 0 0 4px #fff;
 }
+
 .tile {
-  background:#B67C6D;
-  border:1px solid #83493A;
-  font:22pt Arial;
-  font-weight:bold;
-  color:#FFF;
-  text-shadow:0 -1px 0 #610;
-  width:38px;
-  height:37px;
-  text-align:right;
-  vertical-align:top;
-  margin:0 4px;
-  box-shadow:inset 0 -1px 0 #83493A,inset 0 -1px 3px #FFF;
+  width: 38px;
+  height: 37px;
+  margin: 0 4px;
+  font: 22pt arial;
+  font-weight: bold;
+  color: #fff;
+  text-align: right;
+  text-shadow: 0 -1px 0 #661100;
+  vertical-align: top;
+  background: #b67c6d;
+  border: 1px solid #83493a;
+  box-shadow: inset 0 -1px 0 #83493a, inset 0 -1px 3px #ffffff;
 }
+
 #rack .tile {
-  display:inline-block;
-  box-shadow:inset 0 -1px 2px #FFF,0 2px 0 #83493A,0 4px 6px #000;
+  display: inline-block;
+  box-shadow: inset 0 -1px 2px #ffffff, 0 2px 0 #83493a, 0 4px 6px #000000;
 }
+
 .tile span {
-  vertical-align:bottom;
-  font-size:10pt;
-  padding:0 2px 0 1px;
+  padding: 0 2px 0 1px;
+  font-size: 10pt;
+  vertical-align: bottom;
 }
-.selected,#rack .selected {
-  border:1px double #72A;
-  text-shadow:0 2px 1px #72A;
+
+.selected,
+#rack .selected {
+  text-shadow: 0 2px 1px #72a;
+  border: 1px double #72a;
 }
+
 #scorecard {
-  font:14pt Georgia;
-  text-align:center;
-  color:#555;
+  font: 14pt georgia;
+  color: #555;
+  text-align: center;
 }
