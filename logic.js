@@ -28,6 +28,13 @@ function init() {
   drawBoard();
 }
 
+function drawLetters(number) {
+  if('undefined' === typeof number) {
+    number = 7;
+  }
+  return letterBag.splice(0, number);
+}
+
 function playTurn() {
   placeWord();
   var newLetters = drawLetters(7 - hand.length);
@@ -38,11 +45,31 @@ function playTurn() {
   turn++;
 }
 
-function drawLetters(number) {
-  if('undefined' === typeof number) {
-    number = 7;
+// --- RENDERING --- //
+function placeWord(word,x,y,dir) {
+  if(!word) {
+    word = findBestWord();
   }
-  return letterBag.splice(0, number);
+  if(word instanceof Object) { // Word object
+    document.getElementById('scorecard').innerHTML += "<b>" + word.value +"</b> : "+ word.score+"pts<br/>";
+    x = word.x;
+    y = word.y;
+    dir = word.dir;
+    word = word.value;
+  }
+  word = word.toLowerCase();
+  for (var i=0; i<word.length; i++) {
+    hand.splice(hand.indexOf(word.charAt(i)), 1);
+  }
+  if(dir == 0) { // RIGHT
+    for(var i=word.length;i--;) {
+      board[y][x+i] = word.charAt(i);
+    }
+  } else {    // UP
+    for(var i=word.length;i--;) {
+      board[y+i][x] = word.charAt(i);
+    }
+  }
 }
 
 // --- AI --- //
@@ -86,38 +113,6 @@ function findBestWord() {
     return word;
   }
 }
-
-function highestWord(data, row, col) {
-  //console.log(data);
-  var words = possibleWords(data);
-  var word = words.reduce(function(prev,word,i,a) {
-    var score = scoreWord(word, data);
-    if(score > prev.score) {
-      if(row == '?') {
-        return {
-          score:score,
-          value:word.value,
-          x:col,
-          y:word.pos,
-          dir:1
-        };
-      } else {
-        return {
-          score:score,
-          value:word.value,
-          x:word.pos,
-          y:row,
-          dir:0
-        };
-      }
-    }
-    // if equal, use less common letters
-    return prev;
-  }, {score:0,value:""});
-  //console.log(word);
-  return word;
-}
-
 function getData(xs, ys) {
   var row, col;
   if(xs == '?') {
@@ -259,6 +254,37 @@ function getData(xs, ys) {
     }
   }
   return data;
+}
+
+function highestWord(data, row, col) {
+  //console.log(data);
+  var words = possibleWords(data);
+  var word = words.reduce(function(prev,word,i,a) {
+    var score = scoreWord(word, data);
+    if(score > prev.score) {
+      if(row == '?') {
+        return {
+          score:score,
+          value:word.value,
+          x:col,
+          y:word.pos,
+          dir:1
+        };
+      } else {
+        return {
+          score:score,
+          value:word.value,
+          x:word.pos,
+          y:row,
+          dir:0
+        };
+      }
+    }
+    // if equal, use less common letters
+    return prev;
+  }, {score:0,value:""});
+  //console.log(word);
+  return word;
 }
 
 function possibleWords(data) {
@@ -545,33 +571,6 @@ function loadWords() {
   request.open("GET","./dictionary.txt",false);
   request.send();
   return request.responseText.split("\n");
-}
-
-// --- RENDERING --- //
-function placeWord(word,x,y,dir) {
-  if(!word) {
-    word = findBestWord();
-  }
-  if(word instanceof Object) { // Word object
-    document.getElementById('scorecard').innerHTML += "<b>" + word.value +"</b> : "+ word.score+"pts<br/>";
-    x = word.x;
-    y = word.y;
-    dir = word.dir;
-    word = word.value;
-  }
-  word = word.toLowerCase();
-  for (var i=0; i<word.length; i++) {
-    hand.splice(hand.indexOf(word.charAt(i)), 1);
-  }
-  if(dir == 0) { // RIGHT
-    for(var i=word.length;i--;) {
-      board[y][x+i] = word.charAt(i);
-    }
-  } else {    // UP
-    for(var i=word.length;i--;) {
-      board[y+i][x] = word.charAt(i);
-    }
-  }
 }
 
 function spaceType(i,j) {
