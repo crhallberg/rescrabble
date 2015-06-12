@@ -7,22 +7,9 @@ for(var i=size;i--;) {
 var alphabet = "abcdefghijklmnopqrstuvwxyz ";
 var count = [9,2,2,4,12,2,3,2,9,1,1,4,2,6,8,2,1,6,4,6,4,2,2,1,2,1,2];
 var value = [1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10,0];
-var hand = 'bceiimo'.split('');
-var setHands = [
-  'bceiimo'.split(''),
-  'eeilnor'.split(''),
-  'bdeeiiv'.split(''),
-  'aaeiiov'.split(''),
-  'adeiosw'.split(''),
-  'eeinoov'.split('')
-]
 
 function init() {
   dictionary = new Dictionary(loadWords());
-  //placeWord("BIOMIC",3,7,0);turn++;
-  //placeWord("ELOINER",4,4,1);turn++;
-  //placeWord("VIBE",3,2,1);turn++;
-  //placeWord("VIVE",1,2,0);turn++;
   hand = getHand(turn);
   drawBoard();
 }
@@ -34,13 +21,10 @@ function playTurn() {
 }
 
 function getHand(turn) {
-  turn = 50;
-  if(turn >= setHands.length) {
-    hand = [];
-    for(var i=7;i--;) {
-      hand.push(alphabet.charAt(Math.floor(Math.random()*26)));
-    }
-  } else hand = setHands[turn];
+  var hand = [];
+  for(var i=7;i--;) {
+    hand.push(alphabet.charAt(Math.floor(Math.random()*26)));
+  }
   return hand;
 }
 
