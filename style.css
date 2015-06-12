@@ -1,8 +1,15 @@
-﻿table {margin: 1em auto;}
+﻿html {font-size: 16px;}
+body {
+  text-align: center;
+  font-family: Georgia;
+  background:#fed;
+}
+
+table {margin: 1em auto;}
 
 td {
-  width: 41px;
-  height: 41px;
+  width: 35px;
+  height: 35px;
   text-align: center;
   vertical-align: middle;
   background: #fec;
@@ -27,6 +34,7 @@ td {
 .tl {background: #79f;}
 
 #rack {
+  background: #fff;
   padding: 15px 20px 25px 20px;
   border-spacing: 8px 0;
   box-shadow: 0 0 1px #000,inset 0 0 4px #fff;
@@ -62,10 +70,4 @@ td {
 #rack .selected {
   text-shadow: 0 2px 1px #72a;
   border: 1px double #72a;
-}
-
-#scorecard {
-  font: 14pt georgia;
-  color: #555;
-  text-align: center;
 }
