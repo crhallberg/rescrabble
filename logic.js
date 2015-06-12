@@ -35,6 +35,7 @@ function playTurn() {
     hand.push(newLetters[i]);
   }
   drawBoard();
+  turn++;
 }
 
 function drawLetters(number) {
@@ -552,10 +553,7 @@ function placeWord(word,x,y,dir) {
     word = findBestWord();
   }
   if(word instanceof Object) { // Word object
-    if(turn > 0) {
-      document.getElementById('scorecard').innerHTML += " , ";
-    }
-    document.getElementById('scorecard').innerHTML += "<b>" + word.value +"</b> : "+ word.score+"pts";
+    document.getElementById('scorecard').innerHTML += "<b>" + word.value +"</b> : "+ word.score+"pts<br/>";
     x = word.x;
     y = word.y;
     dir = word.dir;

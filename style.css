@@ -4,7 +4,6 @@ body {
   font-family: Georgia;
   background:#561B1F;
   background-image: radial-gradient(circle at center, #722329, #561B1F);
-  color: rgba(255,255,255,.6);
 }
 a {color: #fff;}
 
@@ -56,6 +55,20 @@ td {
   padding: 0 2px 0 1px;
   font-size: 10pt;
   vertical-align: bottom;
+}
+
+#scorecard {
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  padding: 1em;
+  text-align: left;
+  background: rgba(255,255,255,.1);
+  color: #fff;
 }
 
 /* Special Tiles */
