@@ -1,15 +1,18 @@
-﻿
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-        <title>Scrabble Helper</title>
-        <script src="./logic.js"></script>
-        <link rel="stylesheet" href="./style.css"/>
-    </head>
-    <body onload="init()">
-        <table id="board"></table>
-        <a href="http://www.scrabble-assoc.com/cgi-bin/showgcg.pl?id=nsc2011/4;turn=3" target="_new" style="display: block; text-align: center;">Scrabble Reference</a>
-        <a href="#" onClick="this.innerHTML='loading...';this.style.color='grey';this.style.fontStyle='italic';playTurn(); this.innerHTML='Find Best Move';this.style.fontStyle='normal';this.style.color='#00D'; " style="display: block; text-align: center;">Find Best Move</a>
-        <table id="rack"></table>
-        <div id="scorecard"></div>
-    </body>
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrabble Helper</title>
+    <script src="./logic.js"></script>
+    <link rel="stylesheet" href="./style.css"/>
+  </head>
+  <body onload="init()">
+    <table id="board"></table>
+    <a href="http://www.scrabble-assoc.com/cgi-bin/showgcg.pl?id=nsc2011/4;turn=3" target="_new" style="display: block; text-align: center;">Scrabble Reference</a>
+    <a href="#" onClick="this.innerHTML='loading...';this.style.color='grey';this.style.fontStyle='italic';playTurn(); this.innerHTML='Find Best Move';this.style.fontStyle='normal';this.style.color='#00D'; " style="display: block; text-align: center;">Find Best Move</a>
+    <table id="rack"></table>
+    <div id="scorecard"></div>
+  </body>
 </html>
