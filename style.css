@@ -14,7 +14,7 @@ table {
   background: #fff;
 }
 #rack {
-  background: #fed;
+  background: rgba(255,255,255,.2);
   border-spacing: 0 8px;
   padding: 10px 25px;
 }
