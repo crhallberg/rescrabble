@@ -1,31 +1,47 @@
 ﻿var size = 15;
 var turn = 0;
+var hand = [];
 var board = [];
-for(var i=size;i--;) {
-  board[i] = [];
-}
 var alphabet = "abcdefghijklmnopqrstuvwxyz ";
 var count = [9,2,2,4,12,2,3,2,9,1,1,4,2,6,8,2,1,6,4,6,4,2,2,1,2,1,2];
 var value = [1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10,0];
+var letterBag = [];
 
 function init() {
   dictionary = new Dictionary(loadWords());
-  hand = getHand(turn);
+  for (var i=0; i<count.length; i++) {
+    for (var j=0; j<count[i]; j++) {
+      letterBag.push(alphabet.charAt(i));
+    }
+  }
+  for (var i=0; i<letterBag.length; i++) {
+    var t = Math.floor(Math.random()*i);
+    var tv = letterBag[t];
+    letterBag[t] = letterBag[i];
+    letterBag[i] = tv;
+  }
+  hand = drawLetters(7);
+  // Make data for board
+  for(var i=size;i--;) {
+    board[i] = [];
+  }
   drawBoard();
 }
 
 function playTurn() {
   placeWord();
-  hand = getHand(++turn);
+  var newLetters = drawLetters(7 - hand.length);
+  for(var i=0;i<newLetters.length;i++) {
+    hand.push(newLetters[i]);
+  }
   drawBoard();
 }
 
-function getHand(turn) {
-  var hand = [];
-  for(var i=7;i--;) {
-    hand.push(alphabet.charAt(Math.floor(Math.random()*26)));
+function drawLetters(number) {
+  if('undefined' === typeof number) {
+    number = 7;
   }
-  return hand;
+  return letterBag.splice(0, number);
 }
 
 // --- AI --- //
@@ -546,6 +562,9 @@ function placeWord(word,x,y,dir) {
     word = word.value;
   }
   word = word.toLowerCase();
+  for (var i=0; i<word.length; i++) {
+    hand.splice(hand.indexOf(word.charAt(i)), 1);
+  }
   if(dir == 0) { // RIGHT
     for(var i=word.length;i--;) {
       board[y][x+i] = word.charAt(i);
